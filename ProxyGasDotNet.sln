@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{85306F42-EA6D-4883-AECC-0DB2EBBC9AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyGas.WebApi", "ProxyGas.WebApi\ProxyGas.WebApi.csproj", "{CFC1DC73-69E4-4DCE-86A6-7CA0E05FE22D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyGas.Domain", "ProxyGas.Domain\ProxyGas.Domain.csproj", "{E7EC93DD-8F46-4F61-994D-83BE750B4232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyGas.Application", "ProxyGas.Application\ProxyGas.Application.csproj", "{603EE3CE-D607-4836-B929-837A8B1EB7CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyGas.Infrastructure", "ProxyGas.Infrastructure\ProxyGas.Infrastructure.csproj", "{DD59A64C-ABE8-44BF-8096-1095168222D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyGas.DbContext", "ProxyGas.DbContext\ProxyGas.DbContext.csproj", "{A082F177-B4A3-488C-95EA-2A3E71D7244F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CFC1DC73-69E4-4DCE-86A6-7CA0E05FE22D} = {85306F42-EA6D-4883-AECC-0DB2EBBC9AFA}
+		{E7EC93DD-8F46-4F61-994D-83BE750B4232} = {85306F42-EA6D-4883-AECC-0DB2EBBC9AFA}
+		{603EE3CE-D607-4836-B929-837A8B1EB7CC} = {85306F42-EA6D-4883-AECC-0DB2EBBC9AFA}
+		{DD59A64C-ABE8-44BF-8096-1095168222D3} = {85306F42-EA6D-4883-AECC-0DB2EBBC9AFA}
+		{A082F177-B4A3-488C-95EA-2A3E71D7244F} = {85306F42-EA6D-4883-AECC-0DB2EBBC9AFA}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFC1DC73-69E4-4DCE-86A6-7CA0E05FE22D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC1DC73-69E4-4DCE-86A6-7CA0E05FE22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC1DC73-69E4-4DCE-86A6-7CA0E05FE22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC1DC73-69E4-4DCE-86A6-7CA0E05FE22D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7EC93DD-8F46-4F61-994D-83BE750B4232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7EC93DD-8F46-4F61-994D-83BE750B4232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7EC93DD-8F46-4F61-994D-83BE750B4232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7EC93DD-8F46-4F61-994D-83BE750B4232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{603EE3CE-D607-4836-B929-837A8B1EB7CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{603EE3CE-D607-4836-B929-837A8B1EB7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{603EE3CE-D607-4836-B929-837A8B1EB7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{603EE3CE-D607-4836-B929-837A8B1EB7CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD59A64C-ABE8-44BF-8096-1095168222D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD59A64C-ABE8-44BF-8096-1095168222D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD59A64C-ABE8-44BF-8096-1095168222D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD59A64C-ABE8-44BF-8096-1095168222D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A082F177-B4A3-488C-95EA-2A3E71D7244F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A082F177-B4A3-488C-95EA-2A3E71D7244F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A082F177-B4A3-488C-95EA-2A3E71D7244F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A082F177-B4A3-488C-95EA-2A3E71D7244F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
