@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProxyGas.Application.UserProfiles.Commands;
 using ProxyGas.Application.UserProfiles.Queries;
@@ -115,8 +116,7 @@ public class UserProfilesController : ControllerBase
     [HttpDelete(ApiRoutes.UserProfiles.ById)]
     public async Task<IActionResult> DeleteUserProfile(Guid id)
     {
-        throw new NotImplementedException("This method is not implemented yet");
-        //First we create the command
+       
         var command = new DeleteUserProfileCommand{UserProfileId = id};
         
         //Then we send the command to the mediator
@@ -125,6 +125,31 @@ public class UserProfilesController : ControllerBase
         //Finally we return the response
         return result.Match(
             success => NoContent(),
+            ErrorMappings.Map
+        );
+    }
+    
+    //Current User's User Profile
+    [HttpGet(ApiRoutes.UserProfiles.Me)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize]
+    public async Task<IActionResult> GetCurrentUserProfile()
+    {
+        //We get the user id from the claims
+        var userProfileId = this.GetUserProfileIdClaim();
+        //We create the query
+        var query = new GetUserProfileByIdQuery
+        {
+            UserProfileId = userProfileId
+        };
+        
+        //We send the query to the mediator
+        var result = await _mediator.Send(query);
+        
+        //We map the result to the response
+        return result.Match(
+            success =>Ok( _mapper.Map<UserProfileResponse>(success)),
             ErrorMappings.Map
         );
     }

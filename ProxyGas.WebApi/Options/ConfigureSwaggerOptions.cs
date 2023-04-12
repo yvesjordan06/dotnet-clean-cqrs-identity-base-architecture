@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -18,6 +19,13 @@ public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
         {
             options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description)); // <- We create a Swagger document for each API version
         }
+
+        var scheme = GetJwtSecurityScheme();
+        options.AddSecurityDefinition(scheme.Reference.Id, scheme);
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            { scheme, Array.Empty<string>() }
+        });
     }
 
 
@@ -47,6 +55,24 @@ public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
         }
         
         return info;
+    }
+
+    private OpenApiSecurityScheme GetJwtSecurityScheme()
+    {
+        return new OpenApiSecurityScheme()
+        {
+            Name = "JWT Authentication",
+            Description =  "Enter JWT Bearer token **_only_**",
+            In = ParameterLocation.Header,
+            Type = SecuritySchemeType.Http,
+            Scheme =   "bearer",
+            BearerFormat = "JWT",
+            Reference = new ()
+            {
+                Id = JwtBearerDefaults.AuthenticationScheme,
+                Type = ReferenceType.SecurityScheme
+            }
+        };
     }
 
 

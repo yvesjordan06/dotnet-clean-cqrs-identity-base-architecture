@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ProxyGas.DbContext;
 
 namespace ProxyGas.WebApi.Registrars;
@@ -7,10 +8,14 @@ public class EntityFrameworkRegistrar : IWebApplicationBuilderRegistrar
 {
     public void Register(WebApplicationBuilder builder)
     {
-        var connectionString = 
+        var connectionString =
             builder.Configuration.GetConnectionString("DefaultConnection");
 
         builder.Services.AddDbContext<ProxyGasDbContext>(options =>
-           options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+        {
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        });
+
+        builder.Services.AddIdentityCore<IdentityUser>().AddEntityFrameworkStores<ProxyGasDbContext>();
     }
 }
