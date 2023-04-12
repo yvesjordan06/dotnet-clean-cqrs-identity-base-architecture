@@ -29,4 +29,16 @@ internal class ApiRoutes
         public const string Register = "register";
         public const string Refresh = "refresh";
     }
+    
+    public class IdentityRoles
+    {
+        public const string Base = ApiRoutes.Root + "/roles";
+        public const string ById =  "{id}";
+    }
+    
+    public class IdentityClaims
+    {
+        public const string Base = ApiRoutes.Root + "/claims";
+        public const string ById =  "{id}";
+    }
 }

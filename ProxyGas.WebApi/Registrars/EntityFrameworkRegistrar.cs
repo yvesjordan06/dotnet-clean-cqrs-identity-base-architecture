@@ -16,6 +16,6 @@ public class EntityFrameworkRegistrar : IWebApplicationBuilderRegistrar
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         });
 
-        builder.Services.AddIdentityCore<IdentityUser>().AddEntityFrameworkStores<ProxyGasDbContext>();
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ProxyGasDbContext>();
     }
 }

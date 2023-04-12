@@ -49,8 +49,10 @@ public class LoginIdentityCommandHandler : IRequestHandler<LoginIdentityCommand,
             new Claim(ClaimTypesValues.Sub, user.Id),
             new Claim(ClaimTypesValues.IdentityId, user.Id),
             new Claim(ClaimTypesValues.UserProfileId, userProfile?.Id.ToString() ?? string.Empty),
+            
         });
         
+        claimsIdentity.AddClaims( _identityService.GetIdentityClaims(user));
         //Create the token
         var token = _identityService.CreateSecurityToken(claimsIdentity);
         
